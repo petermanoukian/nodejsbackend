@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title><%- block('title').toString() || 'NodeJS' %> | Express</title>
+<%- include('../includes/head') %>
+<%- block('style') %>
+</head>
+<body class="d-flex vh-100 overflow-hidden bg-light">
+
+    <%- include('../includes/sidebar') %>
+
+    <div class="d-flex flex-column flex-grow-1">
+        
+        <main class="content-container p-3 flex-grow-1 overflow-auto">
+            <%- body %>
+        </main>
+
+        <%- include('../includes/footer') %>
+    </div>
+
+    <%- include('../includes/scripts') %>
+        <%- block('script') %>
+
+</body>
+</html>

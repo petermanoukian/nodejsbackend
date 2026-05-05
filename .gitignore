@@ -14,11 +14,6 @@ build/
 *.sqlite
 *.sql
 
-# Uploaded Files (CRITICAL: Ignore the actual assets)
-public/uploads/cats/large/*
-public/uploads/cats/small/*
-public/uploads/cats/docs/*
-!public/uploads/cats/.gitkeep
 
 # Logs
 npm-debug.log*

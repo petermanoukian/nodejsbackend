@@ -70,7 +70,7 @@ export class UserController {
     // ACTION: Update
     public update = async (req: Request, res: Response): Promise<void> => {
         try {
-            const { id } = req.params;
+            const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
             const updatedUser = await this.userService.modifyUser(id, req.body);
             res.status(200).json({ success: true, data: updatedUser });
         } catch (error: any) {

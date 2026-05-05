@@ -81,8 +81,9 @@ export class UserController {
     // ACTION: Delete Single
     public destroy = async (req: Request, res: Response): Promise<void> => {
         try {
-            const { id } = req.params;
-            const success = await this.userService.removeUser(id);
+            const idParam: string = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+            const success = await this.userService.removeUser(idParam);
+
             res.status(200).json({ success, message: success ? "User deleted" : "Delete failed" });
         } catch (error: any) {
             res.status(500).json({ success: false, message: error.message });

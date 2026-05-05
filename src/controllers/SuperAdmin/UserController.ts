@@ -37,7 +37,11 @@ export class UserController {
     // 2-Rule: GET Single by ID
     public show = async (req: Request, res: Response): Promise<void> => {
         try {
-            const { id } = req.params;
+            const id = Array.isArray(req.params.id) ? req.params.id[0] : req.params.id;
+            if (!id) {
+                res.status(400).json({ success: false, message: "Missing user id" });
+                return;
+            }
             const options = {
                 related: req.body.related,
                 fields: req.body.fields
